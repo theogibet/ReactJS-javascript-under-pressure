@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Exercice from './exercice';
+import Exercice from '../exercices/exercice';
 
 
 function Renderer() {

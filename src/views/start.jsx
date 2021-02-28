@@ -1,5 +1,5 @@
 import React  from 'react';
-import './index.css';
+import './views.css';
 import {Link} from "react-router-dom"
 
 function Start() {

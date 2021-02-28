@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import ReactStopwatch from 'react-stopwatch';
 import './App.css'
-import Start from "./start.js"
-import Renderer from "./renderer.js"
-import End from "./End.js"
+import Start from "./views/start.jsx"
+import Renderer from "./renderer/renderer.jsx"
+import End from "./views/end.jsx"
 
 import {
   BrowserRouter as Router,
