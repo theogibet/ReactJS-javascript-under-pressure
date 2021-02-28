@@ -2,6 +2,13 @@
 
 Technical test in ReactJS to reproduce a Javascript technical test online
 
+## Dependencies
+
+In the project directory, run:
+
+### `yarn install`
+
+To install all the package and dependencies needed for the app
 ## Start the app
 
 In the project directory, you can run:
