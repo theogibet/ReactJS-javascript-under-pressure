@@ -37,8 +37,8 @@ function Exercice({ exercices, code, onChange, level, onLevel }) {
         return;
       }
     }
+    div.scrollTo({ top: div.offsetHeight * 2, behavior: 'smooth' })
     res.innerText += "Well done, Click the next button for the next one\n\n"
-    div.scrollTo({ top: div.offsetHeight, behavior: 'smooth' })
     
     setPass(true);
 }
@@ -48,14 +48,13 @@ const next = () => {
     setPass(false);
     onLevel(level < exercices.length ? level + 1 : level)
     if (level + 1 === exercices.length) {
-        console.log("end")
         end();
     }
     // onChange(exercices[level].code) 
   }
   
   const history = useHistory();
-  const end = useCallback(() => history.push('/end'), [history]);
+  const end = useCallback(() => history.push('/renderer'), [history]);
 
   return <>
     <div>
@@ -72,15 +71,12 @@ const next = () => {
           editorProps={{ $blockScrolling: true }}
         />
       </div>
-      <Button className="runButton" onClick={run} type="primary" size="large" style={{ backgroundColor: "#08584D", marginTop: "6%", marginLeft: "7%"}}>Run</Button>
-      <Button disabled={!pass} onClick={next} type="primary" size="large" style={{ backgroundColor: "#08584D", marginLeft: "8%"}}>Next</Button>
-      
-      {/* <button onClick={run} className="run_button">Run</button>
-      <button disabled={!pass} onClick={next} className="next_button">Next</button> */}
+          <Button className="runButton" onClick={run} type="primary" size="large" style={{ height: '80px', width: '160px', backgroundColor: "#08584D", marginLeft: "4%", marginTop:"5%", fontSize: "40px"}}>Run</Button>
+          <Button disabled={!pass} onClick={next} type="primary" size="large" style={{ height: '80px', width: '160px' , backgroundColor: "#08584D", marginLeft: "60px", fontSize: "40px" }}>Next</Button>
 
-      <div className="result" id="scroll">
-        <p className="resultText" id="res" />
-      </div>
+        <div className="result" id="scroll">
+          <p className="resultText" id="res" />
+        </div>
     </div>
   </>
 }

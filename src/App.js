@@ -1,9 +1,12 @@
 import React, {Component} from "react";
-import ReactStopwatch from 'react-stopwatch';
 import './App.css'
 import Start from "./views/start.jsx"
 import Renderer from "./renderer/renderer.jsx"
 import End from "./views/end.jsx"
+import Timer from './utils/timer.jsx';
+import useTimer from './utils/usetimer.jsx';
+
+
 
 import {
   BrowserRouter as Router,
@@ -18,7 +21,7 @@ class Header extends React.Component {
       <div>
         <div className="line" />
         <div className="logo">
-        <Stopwatch></Stopwatch>
+         {/* <Stopwatch></Stopwatch> old stopwatch, replace it by a timer hook*/}
           <img alt="logo" style={{position: 'absolute', top: '0px', height: '50px', width: '50px'}} src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5d663c797f5d890001060046/0x0.png">
 
           </img>
@@ -29,39 +32,25 @@ class Header extends React.Component {
   }
 }
 
-const Stopwatch = () => (
-  <ReactStopwatch
-    seconds={0}
-    minutes={0}
-    hours={0}
-    limit="00:45:00"
-    onCallback={() => console.log('Finish')}
-    render={({ formatted }) => {
-      return (
-        <div>
-          <p className="chrono"> {formatted}</p>
-        </div>
-      );
-    }}
-  />
-);
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Header />
+function App() {
+  const { timer, isActive, isPaused, handleStart, handlePause, handleResume, handleReset } = useTimer(0)
+
+  return <>
+  <div>
+    <Header />
+        <Timer timer={timer}/>
         <Router>
           <Switch>
-            <Route exact path="/" component={Start} />
+            <Route exact path="/" render={() => <Start handleStart={handleStart}></Start>}/>
             <Route exact path="/renderer" component={Renderer} />
-            <Route exact path="/end" component={End} />
+            <Route exact path="/end" render={() => <End handlePause={handlePause} timer={timer}></End>}/>
 
           </Switch>
         </Router>
-      </div>
-    );
-  }
+  </div>
+  </>
 }
+
 
 export default App;

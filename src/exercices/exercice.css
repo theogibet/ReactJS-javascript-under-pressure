@@ -1,56 +1,48 @@
 button {
     font-size: 100px;
 }
-.run_button{
-    position: absolute;
-    left: 3.6%;
-    font-size: 50px;
-    margin-top: 50px;
-}
-
-.next_button{
-    position: absolute;
-    font-size: 50px;
-
-}
-
 .editor{
-    resize: none;
     right: 1%;
     left: 1%;
     top: 2%;
-    
     border: 1px solid #333;
 }
-.text_editor {
-    border: 1px;
-    position: absolute;
-    display: block;
-    resize: none;
-}
+
 .result {
-    position: absolute;
-    /* top: 72%; */
-    left: 32%;
+    top: 72%;
+    left: 28%;
     right: 2%;
     bottom: 2%;
-    width: 66%;
-    height: 27%;
+    
+    width: 71%;
+    height: 26%;
+    
+    position: absolute;
     padding: 0;
     margin: 0;
     border: 0;
+    display: block;
+    resize: none;
+
     font-size: 30px;
     font-size: 3vh;
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
-    display: block;
-    resize: none;
     overflow-y: scroll;
     overflow-x: hidden;
-    background-color:
-    #fff;
+    background-color:#fff;
 }
 
+
 .resultText {
-    margin-left: 5%;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    margin-left: 3%;
     font-size: 25px;
 }
+
+/* width: calc(100% - 300px);
+display: block;
+overflow-y: scroll;
+overflow-x: hidden;
+background-color:#fff; 
+height: 250px;
+margin-top: 30px; */

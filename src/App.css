@@ -12,7 +12,7 @@
 }
 
 .chrono {
-  border: 3px solid black;
+  /* border: 3px solid black; */
   font-size: 35px;
   position: fixed;
   left: 88%;
