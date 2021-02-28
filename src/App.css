@@ -1,3 +1,5 @@
+@import '~antd/dist/antd.css';
+
 .App {
   text-align: center;
 }
@@ -10,8 +12,7 @@
 }
 
 .chrono {
-  border: 2px solid red;
-  border-radius: 10px;
+  border: 3px solid black;
   font-size: 35px;
   position: fixed;
   left: 88%;

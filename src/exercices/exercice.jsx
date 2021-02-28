@@ -4,6 +4,8 @@ import "ace-builds/src-noconflict/theme-github";
 import './exercice.css';
 import React, {useState, useCallback} from "react";
 import {useHistory}  from "react-router-dom";
+import { Button } from 'antd';
+
 
 function Exercice({ exercices, code, onChange, level, onLevel }) {
     const [pass, setPass] = useState(false)
@@ -14,7 +16,17 @@ function Exercice({ exercices, code, onChange, level, onLevel }) {
 
     res.innerText = ""
     for (let i = 0; i < exercices[level].inputs.length; i++) {
-      let result = eval(code + exercices[level].name + "(" + exercices[level].inputs[i] + ")")
+      let result;
+      try {
+        result = eval(code + exercices[level].name + "(" + exercices[level].inputs[i] + ")")
+      } catch (e) {
+        if (e instanceof SyntaxError) {
+            alert(e.message);
+            return;
+        } else {
+          alert("Your code isn't working, try again")
+        }
+      }
       res.innerText += "Testing:" + exercices[level].inputs[i] + '\n'
       res.innerText += "Expected:" + exercices[level].expected[i] + '\nGot:' + result + '\n'
       if (result === exercices[level].expected[i]) {
@@ -51,16 +63,20 @@ const next = () => {
         <AceEditor
           mode="javascript"
           theme="github"
+          className="editor"
           value={code}
-          height="500px"
+          height="450px"
           fontSize="30px"
           width="98%"
           onChange={(value) => onChange(value)}
           editorProps={{ $blockScrolling: true }}
         />
       </div>
-      <button onClick={run} className="run_button">Run</button>
-      <button disabled={!pass} onClick={next} className="next_button">Next</button>
+      <Button className="runButton" onClick={run} type="primary" size="large" style={{ backgroundColor: "#08584D", marginTop: "6%", marginLeft: "7%"}}>Run</Button>
+      <Button disabled={!pass} onClick={next} type="primary" size="large" style={{ backgroundColor: "#08584D", marginLeft: "8%"}}>Next</Button>
+      
+      {/* <button onClick={run} className="run_button">Run</button>
+      <button disabled={!pass} onClick={next} className="next_button">Next</button> */}
 
       <div className="result" id="scroll">
         <p className="resultText" id="res" />
