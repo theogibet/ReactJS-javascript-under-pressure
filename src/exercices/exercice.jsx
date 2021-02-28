@@ -54,7 +54,7 @@ const next = () => {
   }
   
   const history = useHistory();
-  const end = useCallback(() => history.push('/renderer'), [history]);
+  const end = useCallback(() => history.push('/end'), [history]);
 
   return <>
     <div>

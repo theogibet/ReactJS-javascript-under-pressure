@@ -9,17 +9,6 @@ const Timer = ({timer}) => {
     <div className="app">
       <div className='timer'>
         <p>{formatTime(timer)}</p>
-        {/* <div className='buttons'>
-          {
-            !isActive && !isPaused ?
-              <button onClick={handleStart}>Start</button>
-              : (
-                isPaused ? <button onClick={handlePause}>Pause</button> :
-                  <button onClick={handleResume}>Resume</button>
-              )
-          }
-          <button onClick={handleReset} disabled={!isActive}>Reset</button>
-        </div> */}
       </div>
     </div>
   );

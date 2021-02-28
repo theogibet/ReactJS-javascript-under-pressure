@@ -13,7 +13,7 @@ function End({handlePause, timer}) {
 
   return <>
     <h2 style={{textAlign: 'center', fontSize: '30px'}}>Well done you complete the test in {timer} seconds !</h2>
-    <Button type="primary" size="large" style={{marginTop: "5%", backgroundColor: "#08584D", margin: "auto", display: 'block' }}><Link to="renderer"> Start again</Link></Button>
+    <Button type="primary" size="large" style={{marginTop: "5%", backgroundColor: "#08584D", margin: "auto", display: 'block' }}><Link to="/"> Start again</Link></Button>
     
   </>
 }

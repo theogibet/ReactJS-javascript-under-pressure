@@ -34,7 +34,7 @@ class Header extends React.Component {
 
 
 function App() {
-  const { timer, isActive, isPaused, handleStart, handlePause, handleResume, handleReset } = useTimer(0)
+  const { timer, handleStart, handlePause, handleReset } = useTimer(0)
 
   return <>
   <div>
@@ -42,7 +42,7 @@ function App() {
         <Timer timer={timer}/>
         <Router>
           <Switch>
-            <Route exact path="/" render={() => <Start handleStart={handleStart}></Start>}/>
+            <Route exact path="/" render={() => <Start handleStart={handleStart} handleReset={handleReset}></Start>}/>
             <Route exact path="/renderer" component={Renderer} />
             <Route exact path="/end" render={() => <End handlePause={handlePause} timer={timer}></End>}/>
 
