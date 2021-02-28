@@ -1,5 +1,4 @@
 import React from 'react';
-import useTimer from './usetimer.jsx';
 import { formatTime } from './formattime.jsx';
 import './timer.css'
 

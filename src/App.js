@@ -1,13 +1,10 @@
-import React, {Component} from "react";
+import React  from "react";
 import './App.css'
 import Start from "./views/start.jsx"
 import Renderer from "./renderer/renderer.jsx"
 import End from "./views/end.jsx"
 import Timer from './utils/timer.jsx';
 import useTimer from './utils/usetimer.jsx';
-
-
-
 import {
   BrowserRouter as Router,
   Switch,
